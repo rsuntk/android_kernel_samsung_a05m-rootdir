@@ -10,6 +10,6 @@ export DIST_DIR="../out/target/product/a05m/obj/KLEAF_OBJ/dist"
 export DEFCONFIG_OVERLAYS="mt6768_overlay.config S96818AA1.config S96818AA1_debug.config"
 export PROJECT="mgk_64_k66"
 export MODE="user"
-export SANDBOX_ARGS="--spawn_strategy=local"
+export SANDBOX_ARGS="--disk_cache=/home/runner/.cache/bazel --config=fast"
 
 ./kernel_device_modules-6.6/build.sh
