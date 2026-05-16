@@ -28,6 +28,8 @@ KLEAF_ARGS=("${DEBUG_ARGS} ${SANDBOX_ARGS} \
 	--noenable_bzlmod \
 	--//build/bazel_mgk_rules:kernel_version=${KERNEL_VERSION_NUM}")
 
+echo "KLEAF_ARGS=$KLEAF_ARGS"
+
 set -x
 (
   tools/bazel ${KLEAF_OUT} build ${KLEAF_ARGS} ${KLEAF_BUILD_TARGET}
