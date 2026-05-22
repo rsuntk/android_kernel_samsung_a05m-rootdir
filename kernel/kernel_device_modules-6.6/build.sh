@@ -29,11 +29,12 @@ KLEAF_ARGS=("${DEBUG_ARGS} ${SANDBOX_ARGS} \
 	--//build/bazel_mgk_rules:kernel_version=${KERNEL_VERSION_NUM}")
 
 echo "KLEAF_ARGS=$KLEAF_ARGS"
+echo "INFO: Host CPUs: $(nproc --all)"
 
 set -x
 (
   tools/bazel ${KLEAF_OUT} build ${KLEAF_ARGS} ${KLEAF_BUILD_TARGET}
-  tools/bazel ${KLEAF_OUT} run ${KLEAF_ARGS} \
+  tools/bazel ${KLEAF_OUT} run --jobs=$(nproc --all) ${KLEAF_ARGS} \
 	--nokmi_symbol_list_violations_check ${KLEAF_DIST_TARGET} -- --dist_dir=${OUT_DIR}/dist
 )
 set +x
