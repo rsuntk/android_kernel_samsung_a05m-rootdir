@@ -11,7 +11,7 @@ export DEFCONFIG_OVERLAYS="mt6768_overlay.config S96818AA1.config S96818AA1_debu
 export PROJECT="mgk_64_k66"
 export MODE="user"
 export SANDBOX=0
-export SANDBOX_ARGS="--config=fast --config=local"
+export SANDBOX_ARGS="--config=local"
 export KBUILD_BUILD_USER=rsuntk
 export KBUILD_BUILD_HOST=yukiprjkt
 
