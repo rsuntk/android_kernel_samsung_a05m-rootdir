@@ -12,7 +12,5 @@ export PROJECT="mgk_64_k66"
 export MODE="user"
 export SANDBOX=0
 export SANDBOX_ARGS="--config=local"
-export KBUILD_BUILD_USER=rsuntk
-export KBUILD_BUILD_HOST=yukiprjkt
 
 ./kernel_device_modules-6.6/build.sh
