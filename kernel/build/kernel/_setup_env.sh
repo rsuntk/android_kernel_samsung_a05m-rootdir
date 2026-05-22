@@ -96,6 +96,9 @@ if [ -z "${SOURCE_DATE_EPOCH}" ]; then
   export SOURCE_DATE_EPOCH=0
 fi
 
+export KBUILD_BUILD_HOST=yukiprjkt
+export KBUILD_BUILD_USER=rsuntk
+
 # List of prebuilt directories shell variables to incorporate into PATH
 prebuilts_paths=(
 LINUX_GCC_CROSS_COMPILE_PREBUILTS_BIN
