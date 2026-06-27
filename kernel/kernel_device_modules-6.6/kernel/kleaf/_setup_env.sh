@@ -40,14 +40,8 @@ if [ "x${DEBUG}" == "x1" ]
 then
 DEBUG_ARGS="--sandbox_debug --verbose_failures"
 fi
-if [ -z ${SANDBOX} ]
-then
-  SANDBOX=1
-else
-  if [ "x${SANDBOX}" == "x0" ]
-  then
-    SANDBOX_ARGS="--config=local"
-  fi
+if [ -z ${SANDBOX} ]; then
+SANDBOX=1
 fi
 
 export PATH="${ROOT_DIR}/prebuilts/jdk/jdk11/linux-x86/bin:${PATH}"
