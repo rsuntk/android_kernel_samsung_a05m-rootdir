@@ -22,8 +22,8 @@ clone_quiet() {
 }
 
 # grab kernel
-clone_quiet https://github.com/rsuntk/android_kernel_samsung_a05m-6.6.git android15-6.6-lts kernel-6.6
-clone_quiet https://github.com/rsuntk/android_kernel_device_modules-6.6.git master kernel/kernel_device_modules-6.6
+clone_quiet https://github.com/rsuntk/android_kernel_samsung_a05m-6.6.git 02072026 kernel-6.6
+clone_quiet https://github.com/rsuntk/android_kernel_device_modules-6.6.git 02072026 kernel/kernel_device_modules-6.6
 clone_quiet https://github.com/rsuntk/android_vendor_mediatek_kernel_modules.git master vendor/mediatek/kernel_modules
 
 # append tc
