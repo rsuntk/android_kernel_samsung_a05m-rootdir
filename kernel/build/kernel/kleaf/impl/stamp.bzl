@@ -66,8 +66,32 @@ def _write_localversion(ctx):
 
     cmd = ctx.attr.env[KernelEnvInfo].setup + """
         (
+            # Extract the Android release version. If there is no match, then return 255
+            # and clear the variable $android_release
+            set +e
+            if [[ "$BRANCH" == "android-mainline" ]]; then
+                android_release="mainline"
+            else
+                android_release=$(echo "$BRANCH" | sed -e '/android[0-9]\\{{2,\\}}/!{{q255}}; s/^\\(android[0-9]\\{{2,\\}}\\)-.*/\\1/')
+                if [[ $? -ne 0 ]]; then
+                    echo "WARNING: Cannot extract android_release from BRANCH ${{BRANCH}}." >&2
+                    android_release=
+                fi
+            fi
+            set -e
+            if [[ -n "$KMI_GENERATION" ]] && [[ $(expr $KMI_GENERATION : '^[0-9]\\+$') -eq 0 ]]; then
+                echo "Invalid KMI_GENERATION $KMI_GENERATION" >&2
+                exit 1
+            fi
+            scmversion=""
             stable_scmversion=$({stable_scmversion_cmd})
-            scmversion="${{stable_scmversion}}"
+            scmversion_prefix=
+            if [[ -n "$android_release" ]] && [[ -n "$KMI_GENERATION" ]]; then
+                scmversion_prefix="-$android_release-$KMI_GENERATION"
+            elif [[ -n "$android_release" ]]; then
+                scmversion_prefix="-$android_release"
+            fi
+            scmversion="${{scmversion_prefix}}${{stable_scmversion}}"
             echo $scmversion
         ) > {out_path}
     """.format(

@@ -97,7 +97,8 @@ if [ -z "${SOURCE_DATE_EPOCH}" ]; then
 fi
 
 export KBUILD_BUILD_HOST=build-host
-export KBUILD_BUILD_USER=kleaf
+export KBUILD_BUILD_USER=build-user
+export KBUILD_BUILD_VERSION=1
 
 # List of prebuilt directories shell variables to incorporate into PATH
 prebuilts_paths=(
