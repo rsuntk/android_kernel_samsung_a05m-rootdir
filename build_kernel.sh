@@ -13,6 +13,6 @@ export DIST_DIR="../out/target/product/a05m/obj/KLEAF_OBJ/dist"
 export PROJECT="mgk_64_k66"
 export MODE="user"
 export SANDBOX=0
-export SANDBOX_ARGS="--config=local --nokleaf_localversion"
+export SANDBOX_ARGS="--config=local"
 
 ./kernel_device_modules-6.6/build.sh
