@@ -2,7 +2,7 @@
 
 cd kernel
 
-export DEFCONFIG_OVERLAYS="mt6768_overlay.config S96818AA1.config S96818AA1_debug.config $EXT_DEFCONFIG"
+export DEFCONFIG_OVERLAYS="mt6768_overlay.config S96818AA1.config S96818AA1_debug.config rsuntk_overlay.config $EXT_DEFCONFIG"
 
 python kernel_device_modules-6.6/scripts/gen_build_config.py --kernel-defconfig mediatek-bazel_defconfig --kernel-defconfig-overlays "$DEFCONFIG_OVERLAYS" --kernel-build-config-overlays "" -m user -o ../out/target/product/a05m/obj/KERNEL_OBJ/build.config
 
